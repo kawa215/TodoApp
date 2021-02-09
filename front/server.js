@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const path = __dirname + "/app/views/";
+const path = __dirname + "/build/";
 
 const app = express();
 
@@ -20,28 +20,17 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./app/models");
-
-db.mongoose
-  .connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to the database!");
-  })
-  .catch((err) => {
-    console.log("Cannot connect to the database!", err);
-    process.exit();
-  });
-
-db.sequelize.sync({force：true});
-
 app.get("/", function (req, res) {
   res.sendFile(path + "index.html");
 });
 
-require("./app/routes/turorial.routes")(app);
+// app.get('*', function(req, res) {
+//   res.sendFile(path.join(__dirname, '/build/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//   })
+// })
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
