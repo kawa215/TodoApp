@@ -1,6 +1,6 @@
 # React + Express + MongoDB Application Todo List
 
-## Each todo has id, title, description, published status.  We can create, retrieve, update, delete Todo.
+## We can create, retrieve, update, delete Todo.
 ![Screen Shot 0003-02-10 at 20 57 24](https://user-images.githubusercontent.com/44857986/107507216-94e8d580-6be2-11eb-940d-47a1017118ad.png)
 ![Screen Shot 0003-02-10 at 21 01 59](https://user-images.githubusercontent.com/44857986/107507659-3a03ae00-6be3-11eb-8271-abf03ec716db.png)
 ## There is a Search bar for finding todos by title.
