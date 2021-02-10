@@ -120,7 +120,7 @@ export default class Tutorial extends Component {
       <div>
         {currentTutorial ? (
           <div className="edit-form">
-            <h4>Tutorial</h4>
+            <h4>To do</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -186,7 +186,7 @@ export default class Tutorial extends Component {
         ) : (
           <div>
             <br />
-            <p>Please click on a Tutorial...</p>
+            <p>Please click on a todo...</p>
           </div>
         )}
       </div>
