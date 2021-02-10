@@ -2,11 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const path = __dirname + "/app/views/";
+const dir = __dirname + "/app/views/";
+var path = require('path');
 
 const app = express();
 
-app.use(express.static(path));
+app.use(express.static(dir));
 
 var corsOptions = {
   origin: "http://localhost:8081",
@@ -35,11 +36,27 @@ db.mongoose
     process.exit();
   });
 
-db.sequelize.sync({force：true});
+// db.sequelize.sync();
 
-app.get("/", function (req, res) {
-  res.sendFile(path + "index.html");
-});
+// app.get("/", function (req, res) {
+//   res.sendFile(path + "index.html");
+// });
+
+app.get('/add', function(req, res) {
+  res.sendFile(path.join(__dirname, '/app/views/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
+app.get('/tutorials', function(req, res) {
+  res.sendFile(path.join(__dirname, '/app/views/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 require("./app/routes/turorial.routes")(app);
 
